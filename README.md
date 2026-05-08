@@ -1,68 +1,67 @@
 # 🕷️ Crawlmd
 
-> **Surgical website-to-markdown crawler for LLM context. Features anti-bot stealth bypass, content extraction via Mozilla Readability, and automated image harvesting.**
+> **Surgical website-to-markdown crawler for LLM context. Features AI Agent (MCP) support, stealth bypass, and automated image harvesting.**
 
 [![Built for AI](https://img.shields.io/badge/Built%20for-AI--Context-blueviolet)](#) 
+[![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-green)](#)
 [![Stealth Engine](https://img.shields.io/badge/Engine-Playwright%20Stealth-orange)](#)
-[![Mozilla Readability](https://img.shields.io/badge/Extraction-Mozilla%20Readability-green)](#)
 
-**Crawlmd** is a high-performance, recursive crawler designed to transform entire websites into clean, LLM-ready datasets. It bypasses **403 Forbidden errors**, eliminates **DOM noise**, and **downloads physical image files** locally for multimodal RAG and fine-tuning.
+**Crawlmd** is a high-performance recursive crawler designed to transform entire websites into clean, LLM-ready datasets. It is built to be used by both humans (CLI) and AI agents (MCP).
 
 ---
 
 ## 🌟 Key Highlights
-* **🕵️ Stealth Bypass:** Uses Playwright Stealth to mimic human behavior and evade Cloudflare, DataDome, and advanced WAFs.
-* **📝 Surgical Extraction:** Powered by **Mozilla Readability** (the engine behind Firefox Reader View) to identify and extract the core article content while discarding navbars, ads, and footers.
-* **📸 Local Harvesting:** Automatically downloads and stores image assets locally, ensuring your AI models have access to full multimodal context.
-* **🚀 Zero-Config CLI:** No Docker or complex infrastructure required. Run it anywhere with a single command.
+* **🕵️ Stealth Bypass:** Built-in stealth engine to evade anti-bot detections (Cloudflare, etc.).
+* **📝 Surgical Extraction:** Uses **Mozilla Readability** to extract only the core content, ignoring navbars and ads.
+* **📸 Image Harvesting:** Downloads physical image files locally for multimodal AI models.
+* **🤖 MCP Ready:** Use it as a tool directly inside **Claude Desktop**, **Cursor**, or **Claude Code**.
+* **📦 Bundle Mode:** Option to merge an entire site into a **single Markdown file** for easier LLM ingestion.
 
 ---
 
 ## 🚀 Quick Start
+
+### CLI Usage
 Turn any domain into a structured Markdown library in seconds.
 
-| Command | Action |
-| :--- | :--- |
-| `npx crawlmd <url>` | Recursive crawl & markdown generation. |
-
-### Installation
 ```bash
-# Install dependencies
-npm install
-
-# Setup browser
-npx playwright install chromium
+npx crawlmd https://example.com --bundle
 ```
 
-### Usage
-```bash
-node index.js https://www.remauto.be
+### 🤖 AI Agent Integration (MCP)
+To use Crawlmd as a tool in **Claude Desktop**, add this to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "crawlmd": {
+      "command": "npx",
+      "args": ["-y", "crawlmd", "--mcp"]
+    }
+  }
+}
 ```
 
 ---
 
 ## 📂 Repository Structure
 ```text
-├── index.js          # Unified crawler logic (Readability + Stealth)
-├── package.json      # Binary definitions & dependencies
-└── output/           # Scraped data (Auto-generated)
+├── index.js          # Hybrid CLI/MCP logic
+├── package.json      # Binary & dependencies
+└── output/           # Scraped data
     └── domain_name/
-        ├── markdown/ # Clean .md files for LLM training
-        └── images/   # Actual image assets (.jpg, .png, .webp)
+        ├── markdown/ # Individual .md files
+        ├── images/   # Actual image assets
+        └── bundle.md # One-file-to-rule-them-all (with --bundle)
 ```
 
 ---
 
 ## 🧠 Core Principles
-1. **Surgical Content:** Only extract what matters. Using the Readability algorithm ensures the highest signal-to-noise ratio for your LLM context.
-2. **Stealth by Default:** Adaptive delays and browser fingerprinting to respect rate limits and bypass detection.
-3. **Data Sovereignty:** Local storage of text and images for permanent, offline access to your datasets.
+1. **Surgical Signal:** Target only the core article content to maximize signal-to-noise ratio for RAG.
+2. **Agent-First:** Native MCP support allows AI agents to "browse" and "crawl" sites on their own.
+3. **Local Sovereignty:** Total ownership of text and image data.
 
 ---
 
-## 🛡️ Why Crawlmd?
-Mainstream tools like Firecrawl are powerful but heavy. **Crawlmd** provides a surgical, lightweight alternative that prioritizes content quality and multimodal data (images) without the need for Docker or API keys. It is the definitive "Gitingest" equivalent for the broader web.
-
----
-
-<p align="center">Built by Antoine Ghigny</p>
+<p align="center">Built for the AI-First Era by Antoine Ghigny</p>
