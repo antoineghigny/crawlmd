@@ -1,0 +1,33 @@
+{
+  "name": "crawlmd",
+  "version": "1.0.0",
+  "description": "Deep recursive website-to-markdown crawler for LLM context. Stealth anti-bot bypass, surgical extraction via Mozilla Readability, and automated local image harvesting.",
+  "main": "index.js",
+  "bin": {
+    "crawlmd": "index.js"
+  },
+  "keywords": [
+    "crawler",
+    "markdown",
+    "llm-context",
+    "ai-ready-data",
+    "web-to-markdown",
+    "stealth-scraping",
+    "mozilla-readability",
+    "image-harvester",
+    "rag-data",
+    "scrapping"
+  ],
+  "author": "Antoine Ghigny",
+  "license": "MIT",
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "crawlee": "^3.11.0",
+    "jsdom": "^24.0.0",
+    "playwright": "^1.44.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2"
+  }
+}
