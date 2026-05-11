@@ -1,7 +1,7 @@
 {
   "name": "crawlmd",
-  "version": "1.0.0",
-  "description": "Deep recursive website-to-markdown crawler for LLM context. Stealth anti-bot bypass, surgical extraction via Mozilla Readability, and automated local image harvesting.",
+  "version": "2.0.0",
+  "description": "Recursive website-to-markdown crawler with stealth anti-bot, Readability article extraction OR full-page capture, contact info harvesting, and image download.",
   "main": "index.js",
   "bin": {
     "crawlmd": "index.js"
