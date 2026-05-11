@@ -1,0 +1,5 @@
+storage/
+output/
+node_modules/
+.github/
+.gitignore
